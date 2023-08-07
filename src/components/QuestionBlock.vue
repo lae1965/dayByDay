@@ -3,24 +3,28 @@ import { ref } from 'vue';
 
 import { Role } from '@/interfaces/messageInterfaces';
 import { useMessagesStore } from '@/stores/messagesStore';
+import SpinerBlock from './SpinerBlock.vue';
 
 const question = ref('');
-const { loading, addMessage, fetchMessages } = useMessagesStore();
+const loading = ref(false);
+const { addMessage, fetchMessages } = useMessagesStore();
 
 const handleSubmit = async () => {
   if (!question.value) return;
+  loading.value = true;
   addMessage(Role.user, question.value);
-  await fetchMessages();
-  question.value = '';
-
+  fetchMessages().then(() => {
+    question.value = '';
+    loading.value = false;
+  });
 }
 </script>
 
 <template>
   <section class="question">
-    <form class="question__content" @submit.prevent="handleSubmit">
-      <input type="text" placeholder="Написать сообщение ..." class="question__text" v-model="question"
-        :disabled="loading">
+    <SpinerBlock v-if="loading" />
+    <form class="question__content" @submit.prevent="handleSubmit" v-else>
+      <input type="text" placeholder="Написать сообщение ..." class="question__text" v-model="question" v-focus>
       <button type="submit" class="question__submit">
         <img src="../assets/images/telegram.png" alt="telegram">
       </button>
