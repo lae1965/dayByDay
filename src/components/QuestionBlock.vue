@@ -13,10 +13,9 @@ const handleSubmit = async () => {
   if (!question.value) return;
   loading.value = true;
   addMessage(Role.user, question.value);
-  fetchMessages().then(() => {
-    question.value = '';
-    loading.value = false;
-  });
+  question.value = '';
+  await fetchMessages();
+  loading.value = false;
 }
 </script>
 

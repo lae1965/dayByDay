@@ -20,7 +20,7 @@ onUpdated(() => {
   <section class="messages" ref="messages">
     <div class="messages__item" v-for="(message, i) in messagesList" :key="i">
       <div
-        :class="{ 'messages__assistent': (message.role === Role.assistent), 'messages__user': (message.role === Role.user) }">
+        :class="{ 'messages__assistant': (message.role === Role.assistant), 'messages__user': (message.role === Role.user) }">
         {{ message.message }}</div>
     </div>
   </section>
@@ -52,7 +52,7 @@ onUpdated(() => {
   border-radius: 18px;
 }
 
-.messages__assistent {
+.messages__assistant {
   margin-right: 64px;
   padding: 10px 15px;
   background-color: #F0F4F9;
