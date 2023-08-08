@@ -46,6 +46,20 @@ const isOpenGPT = ref(false);
   flex-direction: column;
 }
 
+@media (max-width: 480px) {
+  .dialog-box {
+    width: 80vw;
+    right: 10vw;
+  }
+}
+
+@media (max-width: 340px) {
+  .dialog-box {
+    width: 100vw;
+    right: 0;
+  }
+}
+
 .dialog-box__active {
   bottom: 35px;
 }
