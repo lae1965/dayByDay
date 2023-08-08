@@ -16,19 +16,11 @@ export const useMessagesStore = defineStore('messages', () => {
     try {
       const response = await axios.post(import.meta.env.VITE_ENDPOINT, messagesList)
       if (!response) throw new AxiosError('Нет ответа от сервера')
-      addMessage(Role.assistant, response.data[response.data.length - 1].message)
+      addMessage(Role.assistant, response.data)
     } catch (e) {
       console.log((e as AxiosError).message)
       throw e
     }
-    // // ! Это временно, для проверки ответа
-    // return new Promise((resolve) => {
-    //   setTimeout(() => {
-    //     const responeMessage = loremIpsum()
-    //     addMessage(Role.assistant, responeMessage)
-    //     resolve(true)
-    //   }, 2000)
-    // })
   }
 
   return { messagesList, addMessage, fetchMessages }
