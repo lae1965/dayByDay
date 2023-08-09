@@ -35,20 +35,21 @@ onUpdated(() => {
 
 .messages__item {
   padding: 20px 24px 0;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.12px;
 }
 
 .messages__user {
   max-width: 263px;
+  width: -moz-fit-content;
   width: fit-content;
   margin-left: auto;
   padding: 12px;
   background-color: #7C934F;
   color: #FFFFFF;
   font-family: Circe;
-  line-height: 12px;
+  line-height: 13px;
   border-radius: 18px;
 }
 
@@ -60,5 +61,6 @@ onUpdated(() => {
   font-family: Gilroy;
   line-height: 17.5px;
   border-radius: 12px;
+  white-space: pre-wrap;
 }
 </style>

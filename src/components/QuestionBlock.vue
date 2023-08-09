@@ -49,9 +49,9 @@ const handleSubmit = async () => {
   padding: 14px 24px;
   color: #5C6461;
   font-family: Gilroy;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 12px;
+  line-height: 13px;
   border-radius: 12px;
   background-color: #F3F6F6;
   outline: none;
